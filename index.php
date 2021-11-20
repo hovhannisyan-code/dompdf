@@ -15,9 +15,6 @@
   <?php 
     $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") ."://".$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']);
   ?>
-  <script type="text/javascript">
-    const apiUrl = "<?php echo $link; ?>"
-  </script>
    <div id="wrapper" class="wrapper">
     <style>
     *{ font-family: DejaVu Serif;}
@@ -107,10 +104,10 @@
     <div class="section section--intro">
       <div class="intro" style="max-width: 100%; height: auto; display: block;position: relative;">
         <div class="logo">
-          <img id="logo" onclick="importImg(this)" src="<?php echo $link;?>/assets/img/logo.png" alt="Logo">
+          <img id="logo" onclick="importImg(this)" src="" alt="Logo">
         </div>
         <div class="intro__image" >
-          <img id="background" onclick="importImg(this)" src="<?php echo $link;?>/assets/img/background.jpg" alt="Background">
+          <img id="background" onclick="importImg(this)" src="" alt="Background">
         </div>
         <div class="intro__content">
           <div>
@@ -123,7 +120,7 @@
           </div>
           <div class="intro__author">
             <div class="author__image">
-              <img id="guide" onclick="importImg(this)" src="<?php echo $link;?>/assets/img/author.jpg"  alt="Author">
+              <img id="guide" onclick="importImg(this)" src=""  alt="Author">
             </div>
             <div class="author__info">
               <div contenteditable="true">Reiseberater: <span id="guidName"></span></div>

@@ -38,7 +38,7 @@ function chooseColor(val) {
 	document.querySelector(".intro__content").style.background = val;
 }
 function loadUserData() {
-	fetch(apiUrl+'/api.php')
+	fetch('api.php')
   	.then(response => response.json())
   	.then(json => {
   		const {data} = json;
