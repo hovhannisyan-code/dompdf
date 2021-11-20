@@ -7,15 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
-  <!-- Script -->
-  <script type="text/javascript" src="./assets/js/script.js"></script>
+ 
   <!-- Document title -->
   <title>Gruppenreisen</title>
 </head>
 <body>
   <?php 
-  $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") ."://".$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']);
+    $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") ."://".$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']);
   ?>
+  <script type="text/javascript">
+    const apiUrl = "<?php echo $link; ?>"
+  </script>
    <div id="wrapper" class="wrapper">
     <style>
     *{ font-family: DejaVu Serif;}
@@ -105,34 +107,38 @@
     <div class="section section--intro">
       <div class="intro" style="max-width: 100%; height: auto; display: block;position: relative;">
         <div class="logo">
-          <img onclick="importImg(this)" src="<?php echo $link;?>/assets/img/logo.png" alt="Logo">
+          <img id="logo" onclick="importImg(this)" src="<?php echo $link;?>/assets/img/logo.png" alt="Logo">
         </div>
         <div class="intro__image" >
-          <img onclick="importImg(this)" src="<?php echo $link;?>/assets/img/background.jpg" alt="Background">
+          <img id="background" onclick="importImg(this)" src="<?php echo $link;?>/assets/img/background.jpg" alt="Background">
         </div>
         <div class="intro__content">
           <div>
-            <div contenteditable="true">MAROKKO-GRUPPENREISE</div>
-            <div contenteditable="true">2-12 Personen</div>
+            <div id="companyName" contenteditable="true"></div>
+            <div id="count" contenteditable="true"></div>
           </div>
           <div>
-            <h1 contenteditable="true">MAROKKOS CHARME</h1>
-            <div contenteditable="true">11-tägige Erlebnisreise</div>
+            <h1 id="pleace" contenteditable="true"></h1>
+            <div id="subtitle" contenteditable="true"></div>
           </div>
           <div class="intro__author">
             <div class="author__image">
-              <img onclick="importImg(this)" src="<?php echo $link;?>/assets/img/author.jpg"  alt="Author">
+              <img id="guide" onclick="importImg(this)" src="<?php echo $link;?>/assets/img/author.jpg"  alt="Author">
             </div>
             <div class="author__info">
-              <div contenteditable="true">Reiseberater: Mostafa Benzouaa</div>
-              <div contenteditable="true">E-Mail: m.benzouaa@dein-marokko.de</div>
-              <div contenteditable="true">Tel.: +49 341 92713615</div>
+              <div contenteditable="true">Reiseberater: <span id="guidName"></span></div>
+              <div contenteditable="true">E-Mail: <span id="email"></span></div>
+              <div contenteditable="true">Tel.: <span id="phone"></span></div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="choose-color">
+    <label for="color">Background Color</label>
+    <input type="color" id="color" name="head" value="#ba5a31" oninput="chooseColor(this.value)">
+  </div>  
   <form id="hidden_form" name="" action="html-to-pdf.php" method="POST">
     <input type="hidden" id="html" name="html" value=""/>
     <button class="export-btn" onclick="submitAction()" >
@@ -140,5 +146,7 @@
       Export to PDF
     </button>
   </form>
+   <!-- Script -->
+  <script type="text/javascript" src="./assets/js/script.js"></script>
 </body>
 </html>

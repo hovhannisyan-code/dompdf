@@ -111,3 +111,9 @@
     transform: rotate(360deg);
   }
 }
+
+.choose-color {
+  position: fixed;
+  right: 50px;
+  bottom: 150px;
+}

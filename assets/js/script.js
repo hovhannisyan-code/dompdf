@@ -33,3 +33,26 @@ function submitAction() {
 	document.querySelector('#html').value = html;
 	document.forms["hidden_form"].submit();
 }
+
+function chooseColor(val) {
+	document.querySelector(".intro__content").style.background = val;
+}
+function loadUserData() {
+	fetch(apiUrl+'/api.php')
+  	.then(response => response.json())
+  	.then(json => {
+  		const {data} = json;
+  		document.querySelector("#companyName").innerText = data.company
+  		document.querySelector("#count").innerText = data.count
+  		document.querySelector("#pleace").innerText = data.pleace
+  		document.querySelector("#subtitle").innerText = data.subtitle
+  		document.querySelector("#guidName").innerText = data.guide_name;
+  		document.querySelector("#email").innerText = data.email;
+  		document.querySelector("#phone").innerText = data.phone;
+  		//images
+  		document.querySelector("#logo").src = data.logo;
+  		document.querySelector("#background").src = data.background;
+  		document.querySelector("#guide").src = data.guide_img;
+	})
+}
+document.addEventListener('DOMContentLoaded', loadUserData);
