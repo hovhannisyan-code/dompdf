@@ -9,4 +9,4 @@
 - `composer install`
 
 ### Demo
-[composer](http://cryption.hovhanj0.beget.tech/pdf/)
+[Demo](http://cryption.hovhanj0.beget.tech/pdf/)
