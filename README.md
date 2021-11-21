@@ -2,7 +2,7 @@
 
 ## Prerequisite
 1. Make sure you have [composer](https://getcomposer.org/download/) installed.
-2. Requirements ([domPdf](https://github.com/dompdf/dompdf))
+2. Requirements ([domPdf](https://github.com/dompdf/dompdf#requirements))
 
 ### Setup and Installation
 - `git clone`
